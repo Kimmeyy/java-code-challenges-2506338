@@ -9,7 +9,7 @@ public class FizzBuzz {
 
     var erg = new ArrayList<String>();
 
-    for (int i = 1; i < end + 1; i++) {
+    for (int i = 1; i <= end; i++) {
       if (i % 3 == 0 && i % 5 == 0) {
         erg.add("FizzBuzz");
       } else if (i % 3 == 0) {
@@ -18,6 +18,8 @@ public class FizzBuzz {
         erg.add("Buzz");
       } else {
         erg.add(Integer.toString(i));
+        // ODER:
+        // erg.add(i+"");
       }
     }
 
