@@ -1,5 +1,6 @@
 package com.linkedinlearning.challenges;
 
+import java.text.DecimalFormat;
 import java.util.Scanner;
 
 public class VATCalculator {
@@ -20,11 +21,12 @@ public class VATCalculator {
   final String CURRENCY = "€";
 
   public String renderinvoice(double price) {
+    DecimalFormat f = new DecimalFormat("#0.00");
     double mwstAnteil = price * MWST;
     double brutto = price + mwstAnteil;
-    String ergebnis = "Netto: " + price + CURRENCY + "\n" + "VAT(" + MWST + "): " + mwstAnteil + CURRENCY + "\n"
+    return "Netto: " + f.format(price) + CURRENCY + "\n" + "VAT(" + MWST + "): " + f.format(mwstAnteil) + CURRENCY
+        + "\n"
         + "Total: "
-        + brutto + CURRENCY;
-    return ergebnis;
+        + f.format(brutto) + CURRENCY;
   }
 }
