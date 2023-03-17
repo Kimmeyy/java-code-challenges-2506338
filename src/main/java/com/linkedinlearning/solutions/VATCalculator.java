@@ -15,6 +15,7 @@ public class VATCalculator {
     var vatAmount = calculateVAT(price);
     var total = price + vatAmount;
 
+    // Java Multiline String
     return """
         Netto: %.2f%s
         VAT (%.2f): %.2f%s
