@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Fibonacci {
 
-  public int fibonacci(int n) {
+  public static int fibonacci(int n) {
     List<Integer> fibonacciList = new ArrayList<Integer>();
     fibonacciList.add(0);
     fibonacciList.add(1);
