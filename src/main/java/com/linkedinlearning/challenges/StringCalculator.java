@@ -10,7 +10,7 @@ public class StringCalculator {
     int erg = 0;
     for (String num : splittedNumbers) {
       int parseNumber = Integer.parseInt(num);
-      erg = erg + parseNumber;
+      erg += parseNumber;
     }
     return erg;
   }
