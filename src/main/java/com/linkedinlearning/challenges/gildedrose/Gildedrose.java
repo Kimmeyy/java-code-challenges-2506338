@@ -10,6 +10,26 @@ class GildedRose {
   public void updateQuality() {
     for (int i = 0; i < items.length; i++) {
 
+      // Backstage Passes:
+      // sellIn <= 10, quality +2
+      // sellIn <= 5, quality +3
+      // sellIn <= 0, quality 0
+
+      // Aged brie:
+      // sellIn --, quality ++
+
+      // Sulfuras:
+      // sellIn = null, quality
+
+      // Normal items pro Tag:
+      // sellIn --, quality--
+      // sellIn <= 0, quality -2 (doppelt so schneller Verfall)
+      // quality kann nicht negativ sein: quality >= 0 && <= 50
+
+      // TODO:
+      // Conjured items:
+      // verlieren quality doppelt so schnell
+      
       if (items[i].name.contains("Conjured")) {
         items[i].sellIn--;
         items[i].quality -= 2;
