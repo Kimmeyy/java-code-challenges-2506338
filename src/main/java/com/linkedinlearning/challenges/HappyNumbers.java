@@ -5,21 +5,19 @@ import java.util.List;
 
 public class HappyNumbers {
 
-  private boolean isHappyNumber;
-
   boolean isHappy(int n) {
     List<Integer> list = setList(n);
     int sum = sumNumbers(list);
     List<Integer> seen = new ArrayList<>();
-    this.isHappyNumber = false;
+    boolean isHappyNumber = false;
 
     while (!seen.contains(sum)) {
       if (sum == 1) {
-        this.isHappyNumber = true;
+        isHappyNumber = true;
         break;
       }
       if (sum == n) {
-        this.isHappyNumber = false;
+        isHappyNumber = false;
         break;
       } else {
         seen.add(sum);
