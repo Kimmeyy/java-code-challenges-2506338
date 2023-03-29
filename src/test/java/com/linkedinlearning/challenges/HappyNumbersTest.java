@@ -18,6 +18,7 @@ public class HappyNumbersTest {
     Assertions.assertEquals(test2, expected2);
     Assertions.assertTrue(happyNumbers.isHappy(10));
     Assertions.assertTrue(happyNumbers.isHappy(13));
+    // löst Unendlich-Schleife aus:
     Assertions.assertFalse(happyNumbers.isHappy(2));
     Assertions.assertFalse(happyNumbers.isHappy(53));
   }
