@@ -10,17 +10,19 @@ public class HappyNumbers {
   boolean isHappy(int n) {
 
     List<Integer> list = setList(n);
+    int sum = sumNumbers(list);
 
     while (true) {
-      if (sumNumbers(list) == 1) {
+      if (sum == 1) {
         this.isHappyNumber = true;
         break;
       }
-      if (sumNumbers(list) == n) {
+      if (sum == n) {
         this.isHappyNumber = false;
         break;
       } else {
-        list = setList(sumNumbers(list));
+        list = setList(sum);
+        sum = sumNumbers(list);
       }
     }
     return isHappyNumber;

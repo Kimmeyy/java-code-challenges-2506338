@@ -8,7 +8,7 @@ public class HappyNumbersTest {
   void testIsHappy() {
 
     Assertions.assertFalse(HappyNumbers.isHappy(2));
-    Assertions.assertFalse(HappyNumbers.isHappy(8));
+    Assertions.assertFalse(HappyNumbers.isHappy(53));
 
     Assertions.assertTrue(HappyNumbers.isHappy(7));
     Assertions.assertTrue(HappyNumbers.isHappy(10));
