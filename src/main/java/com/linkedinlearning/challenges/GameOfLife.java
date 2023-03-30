@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GameOfLife {
-  
+
   // livingN > 3, cell = 1 -> cell = 0
   // livingN = 3, cell = 0 -> cell = 1
   // livingN = 2 || livingN = 3, cell = 1 -> cell = 1
@@ -27,7 +27,7 @@ public class GameOfLife {
   void evolve() {
     List<Boolean> newSpielfeld = new ArrayList<>();
     newSpielfeld.addAll(spielfeld);
-    for (int i=0; i<spielfeld.size(); i++) {
+    for (int i = 0; i < spielfeld.size(); i++) {
       int livingN = checkNeighbours(i);
       if (livingN > 3) {
         newSpielfeld.set(i, false);
@@ -35,7 +35,7 @@ public class GameOfLife {
         newSpielfeld.set(i, false);
       } else if (livingN == 3) {
         newSpielfeld.set(i, true);
-      } 
+      }
     }
     this.spielfeld = newSpielfeld;
   }
@@ -44,46 +44,38 @@ public class GameOfLife {
     StringBuilder printedField = new StringBuilder();
     for (Boolean feld : spielfeld) {
       if (feld == true) {
-        if (printedField.length()%5 == 0){
-          printedField.append("*");
-          printedField.append(System.lineSeparator());
-        } else {
-          printedField.append("*");
-        }
+        printedField.append("*");
       } else if (feld == false) {
-        if (printedField.length() % 5 == 0) {
-          printedField.append("-");
-          printedField.append(System.lineSeparator());
-        } else {
-          printedField.append("-");
-        }
+        printedField.append("-");
       }
     }
+    printedField.insert(5, System.lineSeparator());
+    printedField.insert(11, System.lineSeparator());
+    printedField.insert(17, System.lineSeparator());
+    printedField.insert(23, System.lineSeparator());
+
     return printedField.toString();
   }
 
   int checkNeighbours(int cell) {
     ArrayList<Boolean> neighbours = new ArrayList<>();
     int numberLivingN = 0;
-//    neighbours = (ArrayList<Boolean>) List.of(spielfeld.get(cell - 1), spielfeld.get(cell - 4), spielfeld.get(cell - 5),spielfeld.get(cell - 6),
-//    spielfeld.get(cell + 1),spielfeld.get(cell + 4), spielfeld.get(cell + 5), spielfeld.get(cell + 6));
 
     List<Integer> indexes = new ArrayList<>();
-    indexes = List.of(cell-1, cell-4, cell-5, cell-6, cell+1, cell+4, cell+5, cell+6);
+    indexes = List.of(cell - 1, cell - 4, cell - 5, cell - 6, cell + 1, cell + 4, cell + 5, cell + 6);
 
     for (Integer integer : indexes) {
-      if(integer <= 24 && integer >= 0) {
+      if (integer <= 24 && integer >= 0) {
         neighbours.add(spielfeld.get(integer));
       }
     }
 
     for (Boolean neighbour : neighbours) {
-      if (neighbour==true) {
+      if (neighbour == true) {
         numberLivingN++;
       }
     }
     return numberLivingN;
   }
-  
 
 }
