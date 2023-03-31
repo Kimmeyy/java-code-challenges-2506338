@@ -19,33 +19,39 @@ public class WordCountReader {
     } catch (NoSuchFileException e) {
       System.out.println("Die Datei existiert nicht:");
       e.printStackTrace();
-    } 
+      throw e;
+    }
   }
 
   int getWords() {
     int anz = 0;
-    for (String string : content) {
-      String[] anzWords = string.split(" ");
-      anz += anzWords.length;
+    if (this.content != null) {
+      for (String string : content) {
+        String[] anzWords = string.split(" ");
+        anz += anzWords.length;
+      }
     }
     return anz;
   }
 
   int getCharacters() {
     int anz = 0;
-    for (String string : content) {
-      anz += string.length();
+    if (this.content != null) {
+      for (String string : content) {
+        anz += string.length();
+      }
     }
     return anz;
   }
 
   int getCharactersExcludingSpaces() {
     int anz = 0;
-    for (String string : content) {
-      String noSpaces = string.replaceAll(" ", "");
-      anz += noSpaces.length();
+    if (this.content != null) {
+      for (String string : content) {
+        String noSpaces = string.replaceAll(" ", "");
+        anz += noSpaces.length();
+      }
     }
     return anz;
-
   }
 }
